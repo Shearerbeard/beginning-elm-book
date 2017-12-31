@@ -1,9 +1,9 @@
 module BrowserRunner exposing (..)
 
-import RippleCarryAdderTests exposing (allTests)
 import Test.Runner.Html
+import TestMain exposing (suite)
 
 
 main : Test.Runner.Html.TestProgram
 main =
-    Test.Runner.Html.run allTests
+    Test.Runner.Html.run suite
