@@ -86,7 +86,7 @@ halfAdderTests =
             \() ->
                 halfAdder 0 0
                     |> Expect.equal { carry = 0, sum = 0 }
-        , test "sum is 1 and carry-out is 0 when the 1st input is 1 and the 2nd input is 0" <|
+        , test "sum is 1 and carry-out is 0 when the 1st input is 1 and the 2nd input is 1" <|
             \() ->
                 halfAdder 0 1
                     |> Expect.equal { carry = 0, sum = 1 }
@@ -149,11 +149,9 @@ fullAdderTests =
                                 |> Expect.equal { carry = 1, sum = 0 }
                     ]
                 ]
-            ]
-        , describe "when the 1st input is 1"
-            [ describe "and the 2nd input is 1"
+            , describe "and the 2nd input is 1"
                 [ describe "and carry-in is 0"
-                    [ test "sum is 0 and carry-out is 1" <|
+                    [ test "sum is 0 and carry-out is 0" <|
                         \() ->
                             fullAdder 1 1 0
                                 |> Expect.equal { carry = 1, sum = 0 }

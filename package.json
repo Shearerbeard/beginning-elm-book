@@ -1,0 +1,22 @@
+{
+  "name": "beginning-elm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "elm-test tests/RippleCarryAdderTests.elm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shearerbeard/beginning-elm-book.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shearerbeard/beginning-elm-book/issues"
+  },
+  "homepage": "https://github.com/Shearerbeard/beginning-elm-book#readme"
+}
