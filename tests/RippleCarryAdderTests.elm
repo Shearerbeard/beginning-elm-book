@@ -1,12 +1,12 @@
-module RippleCarryAdderTests exposing (..)
+module RippleCarryAdderTests exposing (all)
 
 import Expect
 import RippleCarryAdder exposing (..)
 import Test exposing (describe, test)
 
 
-allTests : Test.Test
-allTests =
+all : Test.Test
+all =
     describe "4-bit Ripple Carry Adder Components"
         [ inverterTests
         , andGateTests

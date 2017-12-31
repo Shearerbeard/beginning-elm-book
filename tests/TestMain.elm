@@ -1,10 +1,10 @@
 module TestMain exposing (..)
 
-import RippleCarryAdderTests exposing (allTests)
+import RippleCarryAdderTests exposing (all)
 import Test exposing (Test)
 
 
 suite : Test
 suite =
     Test.concat
-        [ allTests ]
+        [ all ]
