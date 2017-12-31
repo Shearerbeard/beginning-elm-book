@@ -9,6 +9,7 @@ type alias CarrySum =
     , sum : Int
     }
 
+
 andGate : Int -> Int -> Int
 andGate a b =
     Bitwise.and a b
@@ -92,10 +93,11 @@ rippleCarryAdder a b carryIn =
         finalResult =
             fullAdder a3 b3 thirdResult.carry
     in
-        [finalResult, thirdResult, secondResult, firstResult]
+        [ finalResult, thirdResult, secondResult, firstResult ]
             |> List.map .sum
             |> (::) finalResult.carry
             |> numberFromDigits
+
 
 stringToInt : String -> Int
 stringToInt string =
@@ -132,6 +134,7 @@ extractDigits number =
         |> Array.fromList
         |> arrayToTuple
 
+
 digits : Int -> List Int
 digits number =
     let
@@ -140,19 +143,19 @@ digits number =
                 []
             else
                 (n % 10) :: digits (n // 10)
-
     in
         digits number
             |> List.reverse
+
 
 padZeros : Int -> List Int -> List Int
 padZeros total list =
     let
         numberOfZeros =
             total - (List.length list)
-
     in
         (List.repeat numberOfZeros 0) ++ list
+
 
 numberFromDigits : List Int -> Int
 numberFromDigits digitsList =
