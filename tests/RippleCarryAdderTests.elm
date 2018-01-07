@@ -197,3 +197,4 @@ rippleCarryAdderTests =
                         |> Expect.equal 1
             ]
         ]
+

@@ -1,5 +1,8 @@
 module Playground exposing (..)
 
+import Html exposing (Html, text)
+import List exposing (isEmpty)
+import MyList exposing (..)
 import Regex
 
 
@@ -54,12 +57,19 @@ sayHello greeting =
         NumericalHi value1 value2 ->
             value1 + value2 |> toString
 
+type alias User =
+    { name : String
+    , email : String
+    , age : Int
+    , isLoggedIn : Bool
+    }
 
-welcomeMessage : Bool -> String
-welcomeMessage isLoggedIn =
+
+welcomeMessage : { a | isLoggedIn : Bool, name : String } -> String
+welcomeMessage { isLoggedIn, name } =
     case isLoggedIn of
         True ->
-            "Welcome to my awesome site!"
+            "Welcome " ++ name ++ "!"
 
         False ->
             "Please log in"
@@ -135,44 +145,92 @@ getAdultAge character =
                 Nothing
 
 
-type MyList a
-    = EmptyList
-    | ListNode a (MyList a)
+
+-- type Tree a
+--     = Empty
+--     | Node a (Tree a) (Tree a)
+-- exampleTree : Tree Int
+-- exampleTree =
+--     Node '1'
+--         (Node '2'
+--             (Node '4'
+--                 Empty
+--                 (Node '8' Empty Empty)
+--             )
+--             (Node '5' Empty Empty)
+--         )
+--         (Node '3'
+--             (Node '6' Empty Empty)
+--             (Node '7'
+--                 (Node '9' Empty Empty)
+--                 Empty
+--             )
+--         )
 
 
-sum : MyList Int -> Int
-sum myList =
-    case myList of
-        EmptyList ->
-            0
-
-        ListNode intValue remainingValues ->
-            intValue + sum remainingValues
+list1 : MyList a
+list1 =
+    Empty
 
 
-type Tree a
-    = Empty
-    | Node a (Tree a) (Tree a)
+list2 : MyList number
+list2 =
+    Node 9 Empty
 
 
-exampleTree : Tree Int
-exampleTree =
-    Node 1
-        (Node 2
-            (Node 4
-                Empty
-                (Node 8 Empty Empty)
-            )
-            (Node 5 Empty Empty)
-        )
-        (Node 3
-            (Node 6 Empty Empty)
-            (Node 7
-                (Node 9 Empty Empty)
-                Empty
-            )
-        )
+list3 : List a
+list3 =
+    []
 
+
+main : Html msg
+main =
+    List.isEmpty list3
+        |> toString
+        |> text
+
+
+weekday : Int -> String
+weekday dayInNumber =
+    case dayInNumber of
+        0 ->
+            "Sunday"
+
+        1 ->
+            "Monday"
+
+        2 ->
+            "Tuesday"
+
+        3 ->
+            "Wednesday"
+
+        4 ->
+            "Thursday"
+
+        5 ->
+            "Friday"
+
+        6 ->
+            "Saturday"
+
+        _ ->
+            "Unknown day"
+
+
+resultMap5Example : Result String Int
+resultMap5Example =
+    Result.map5 addFiveNumbers
+        (String.toInt "1")
+        (String.toInt "2")
+        (String.toInt "2")
+        (String.toInt "2")
+        (String.toInt "2")
+
+
+addFiveNumbers : Int -> Int -> Int -> Int -> Int -> Int
+addFiveNumbers a b c d e =
+    a + b + c + d + e
 
 
 -- main =
